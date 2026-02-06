@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/obrientg
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://obrientg.github.io
+  * I am obrientg (https://keybase.io/obrientg) on keybase.
+  * I have a public key ASC5NiV0B-a-Xnluv-74VDY_5aB9ar1-f4ha_KxGtdw7JAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120c1c66191fa79eede5e0dade7e248324b58f20b01b89877241010a68003ec808e0a",
+      "host": "keybase.io",
+      "kid": "0120b936257407e6be5e796ebfeef854363fe5a07d6abd7e7f885afcac46b5dc3b240a",
+      "uid": "4b48da853b062e9a4e95009f602d2519",
+      "username": "obrientg"
+    },
+    "merkle_root": {
+      "ctime": 1770343416,
+      "hash": "731eaa207a1696d1c96a35097a10e56ca691e10c13c30e2c09e74d6806152798c3c229e1d012df096fe86409931a0a35e9b405f7c071a23c2cbe212ac3e6ff1f",
+      "hash_meta": "0c4aa49eedce066efb2a9103d470f03fe09c25d402b5b8180f6c3af48f24c752",
+      "seqno": 27391011
+    },
+    "service": {
+      "entropy": "bYQayGp+RcVP/ONPZeEdnJlq",
+      "hostname": "obrientg.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.1"
+  },
+  "ctime": 1770343479,
+  "expire_in": 504576000,
+  "prev": "c09eefb1f0270e8a7a16b35e9e5bd90af6947f0b00645de9a0cd97bc44eb9aae",
+  "seqno": 51,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEguTYldAfmvl55br/u+FQ2P+WgfWq9fn+IWvysRrXcOyQKp3BheWxvYWTESpcCM8QgwJ7vsfAnDop6FrNenlvZCvaUfwsAZF3poM2XvETrmq7EIFRJgOlEFJVVzrYxBIFyyMmMCEmXuAVZiCCnOb5sVc5cAgHCo3NpZ8RAj3OlKiv2wewTo6k6oQOnXSaSEgFdRucQMVGD1dEJLSkMfdUb3XUXwM0CvYaZDG5gZQX67C+1eIs7pL0pc7/2BqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMMd7gsMGVWs2W3x6eUyrRmPzSXQKcrHj/YSg/IErsIfo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/obrientg
+
+==================================================================
