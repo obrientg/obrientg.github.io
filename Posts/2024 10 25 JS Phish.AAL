@@ -1,0 +1,126 @@
+Received two (2) of the same samples, with different file names & hashes but the same detection of JS/Phish.AAL 
+Both were sent to the email address I use for threat intel & incident response collaboration efforts. 
+Email SRC on both was Google Cloud (GCP) with an open proxy, abuse reporting submitted.  
+
+
+Email header anaysis, email #1:
+Return-Path: <>
+X-Original-To: x
+Delivered-To: x
+Received: from [10.88.0.6] (254.180.23.34.bc.googleusercontent.com [34.23.180.254])
+	by people.ops-trust.net (Postfix) with ESMTP id C5F8B1468071
+	for <x>; Fri, 25 Oct 2024 11:13:10 +0000 (UTC)
+Content-Type: multipart/related; boundary="===============7812024153056396853=="
+MIME-Version: 1.0
+From: Sales <Sales1@Hennecke.com>
+To: x
+Subject: =?utf-8?q?Re=3A_Outstanding_Payments-Receipt=23?=
+X-Priority: 2
+
+Parsing header:
+0: Received: from [10.88.0.6] (254.180.23.34.bc.googleusercontent.com [34.23.180.254]) by people.ops-trust.net (Postfix) with ESMTP id C5F8B1468071 for <x>; Fri, 25 Oct 2024 11:13:10 +0000 (UTC)
+Hostname verified: 254.180.23.34.bc.googleusercontent.com
+Ops-Trust received mail from sending system 34.23.180.254
+
+Tracking message source: 34.23.180.254:
+Routing details for 34.23.180.254
+Cached whois for 34.23.180.254 : google-cloud-compliance@google.com
+Using last resort contacts google-cloud-compliance@google.com
+Message is 37 hours old
+34.23.180.254 listed in cbl.abuseat.org ( 1 )
+34.23.180.254 is an open proxy
+34.23.180.254 not listed in iadb.isipp.com
+
+
+
+Email header anaysis, email #2:
+Return-Path: <>
+X-Original-To: x
+Delivered-To: x
+Received: from [10.88.0.4] (189.111.74.34.bc.googleusercontent.com [34.74.111.189])
+	by people.ops-trust.net (Postfix) with ESMTP id BC4981468073
+	for <x>; Fri, 25 Oct 2024 23:01:17 +0000 (UTC)
+Content-Type: multipart/related; boundary="===============2389971251398585116=="
+MIME-Version: 1.0
+From: Sales <Sales1@Hennecke.com>
+To: x
+Subject: =?utf-8?q?Re=3A_Outstanding_Payments-Receipt=23?=
+X-Priority: 2
+
+View entire message
+Parsing header:
+0: Received: from [10.88.0.4] (189.111.74.34.bc.googleusercontent.com [34.74.111.189]) by people.ops-trust.net (Postfix) with ESMTP id BC4981468073 for <x>; Fri, 25 Oct 2024 23:01:17 +0000 (UTC)
+Hostname verified: 189.111.74.34.bc.googleusercontent.com
+Ops-Trust received mail from sending system 34.74.111.189
+
+Tracking message source: 34.74.111.189:
+Routing details for 34.74.111.189
+Cached whois for 34.74.111.189 : google-cloud-compliance@google.com
+Using last resort contacts google-cloud-compliance@google.com
+Message is 25 hours old
+34.74.111.189 listed in cbl.abuseat.org ( 1 )
+34.74.111.189 is an open proxy
+34.74.111.189 not listed in iadb.isipp.com
+
+
+File analysis, email #1: 
+https://www.virustotal.com/gui/file/c4e40b137e43c89261ee89a34db843477a8c994a21a92c98c7b15193face8c35/behavior
+MD5 5cf33dd39d6db60423ac89fd63e5f500
+SHA-1 863c95b7e7ff0bb8299cbae93dfaed12cc619332
+SHA-256 c4e40b137e43c89261ee89a34db843477a8c994a21a92c98c7b15193face8c35
+Vhash 820f7d83ded9ce37063b0296f520c7ee
+SSDEEP 6144:ezLgF9ala9qmtlRSWmnVzu/IEaHaRnubqiVqW2oWr+Z:eM92a9pPEFNHIuG3W2yZ
+TLSH T1DC64E0546E249921E2F18431F4BA63012D6C1FDB5CBC3CBAF90E42950FEBD3E24959E9
+File type HTML internet html
+Magic HTML document, ASCII text, with very long lines (65071u), with CRLF line terminators
+TrID file seems to be plain text/ASCII (0%)
+Magika TXT
+File size 301.00 KB (308229 bytes) 
+
+https://sandbox.pikker.ee/analysis/5375045/summary/
+Size 	301.0KB
+Type 	HTML document, ASCII text, with very long lines (65071), with CRLF line terminators
+MD5 	5cf33dd39d6db60423ac89fd63e5f500
+SHA1 	863c95b7e7ff0bb8299cbae93dfaed12cc619332
+SHA256 	c4e40b137e43c89261ee89a34db843477a8c994a21a92c98c7b15193face8c35
+
+https://www.hybrid-analysis.com/sample/c4e40b137e43c89261ee89a34db843477a8c994a21a92c98c7b15193face8c35
+Submission name: Receipt#35449803714566585438060047934348775401809029067212568209563775458368917803446775099303816088872990859077996789589863383260928273645555329958325609436191152166887512294480523222421952534643440458652776.html
+Size: 301KiB
+Type: html
+Mime: text/html
+SHA256: c4e40b137e43c89261ee89a34db843477a8c994a21a92c98c7b15193face8c35
+Threat Score: 100/100
+AV Detection: 4%
+Labeled As: JS/Phish.AAL
+
+File analysis, email #2: 
+https://www.virustotal.com/gui/file/317aaea9d9ef39c9b85b9ce6e0f68ec83a06b2f3298aded981b19063b2f44737/behavior
+MD5 8a9af78b0a4cdade6df9f71e7e5b1362
+SHA-1 b03fdf0891adacc1995fdd1e2f043343c20a45e5
+SHA-256 317aaea9d9ef39c9b85b9ce6e0f68ec83a06b2f3298aded981b19063b2f44737
+Vhash 820f7d83ded9ce37063b0296f520c7ee
+SSDEEP 6144:ezLgF9ala9qmtlRSWmnVzu/IEaHaRnubqiVqW2oWr+7:eM92a9pPEFNHIuG3W2y7
+TLSH T16564D0646E245921E2F14431F4BA63012D6C1FDB5CBC3CBAF81E42950FEBD3E28959E9
+File type HTML internet html
+Magic HTML document, ASCII text, with very long lines (65071u), with CRLF line terminators
+TrID file seems to be plain text/ASCII (0%)
+Magika TXT
+File size 301.03 KB (308259 bytes) 
+
+https://sandbox.pikker.ee/analysis/5375047/summary/
+Size 	301.0KB
+Type 	HTML document, ASCII text, with very long lines (65071), with CRLF line terminators
+MD5 	8a9af78b0a4cdade6df9f71e7e5b1362
+SHA1 	b03fdf0891adacc1995fdd1e2f043343c20a45e5
+SHA256 	317aaea9d9ef39c9b85b9ce6e0f68ec83a06b2f3298aded981b19063b2f44737
+
+https://www.hybrid-analysis.com/sample/317aaea9d9ef39c9b85b9ce6e0f68ec83a06b2f3298aded981b19063b2f44737
+Submission name: Receipt#97790081052258526039852807263585295233458107128627336115691384307970795638001053087966479826253219801936262533751961605214505135607834555980571561262763940887992003022727013469030217164128575501739824.html
+Size: 301KiB
+Type: html
+Mime: text/html
+SHA256: 317aaea9d9ef39c9b85b9ce6e0f68ec83a06b2f3298aded981b19063b2f44737
+Threat Score: 100/100
+AV Detection: 4%
+Labeled As: JS/Phish.AAL

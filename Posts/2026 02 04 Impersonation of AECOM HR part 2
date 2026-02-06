@@ -1,0 +1,328 @@
+I2026-02-04
+Impersonation of AECOM HR part 2 - The malicious actors respond to my reply
+
+As detailed in https://github.com/obrientg/Analysis/blob/main/2026%2002%2003%20Impersonation%20of%20AECOM%20HR
+I had responded to the threat actor, providing availability for a conversation. The threat actor responded with the questions below at 0331 AM PT 2026-02-04. This should have been a big tell for me as the spoofed HR persona is located in Portland, OR and not likely working in the middle of the night.  
+Then when I had not responded, they replied to the same email thread with the same content at 1737 PM PT 2026-02-04. This is what triggered my further analysis and recognized the miscreant at work. 
+
+The two emails they sent are below: 
+
+SRC email #1
+Subject: Re: Senior Cybersecurity & Risk Leadership Opportunity at AECOM
+Date: Wed, 4 Feb 2026 12:31:02 +0100
+From: pamlevesque@aecom.com <pamlevesque.aecom [AT] gmail [DOT] .com>
+SRC IP: 209.85.220.65
+routeid: 81384177 209.85.128.0 - 209.85.255.255
+ISP: Google/Gmail 
+
+Email Header (Redacted) 
+Delivered-To: x
+Received: by 2002:a05:6022:329b:b0:ee:219e:40ea with SMTP id bw27csp3782938lab;
+        Wed, 4 Feb 2026 03:29:49 -0800 (PST)
+X-Received: by 2002:a05:690c:6d82:b0:794:c263:bead with SMTP id 00721157ae682-794fed3a33amr21891647b3.24.1770204589672;
+        Wed, 04 Feb 2026 03:29:49 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1770204589; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=VksS10oaVrE6PyXZYfBKyqiK3NEQTzZwrzOrbHiL8GXOn2PpcWsFnrP7/7rrHuZr4S
+         wtegmPYLWp8+ziyRa1TyaHbK7Ik9aHnDYxtk14+uO0cuBCZ6HqjK2MBFZkwjbhMRdgtj
+         GlM8Z9BGzCzd15DZ1Bjmgot15veoqpEB9Gqp0BcaHGT7PfQ46xzI3ZkXMMLcj8KlwAqq
+         SQ2C5/Co9Qwg5AXPemMhxl7odM9aTRE6VZNWtwpT5SJQk1EwWpVG63dIsemrbD2KGav5
+         5cLvxIonxx6sbLdpQJOw1Tqor0EBLmRrYsdiVGolXitDikVZB8BonVScYWZNvjnYL8Je
+         GPiA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=eNmAWBi/iJwMFNJ+3Lg1lpMCfKBWuFlPh0Me76AaIKw=;
+        fh=ms1vpttUhFZFm4bhdk9da+Yk0dOJt5yPphOIonoN/lM=;
+        b=hNFv+qNm8njWIV3Pwdruldose3dp3zf+G1yk9TRS0lAWd2W4PrTHykEfAQ/2HzUZMv
+         Fsn8axeQJV+Sh8HDBOaNViXPFyeAEmIt3yo7M3jTsnWX4Vhfdd78i0d9sy5CAxeHicyJ
+         /HSZ57UlR6/XkiwtVScBkUgbQ2+C7JCtogdy7jilpEYGU64XvzXVVXQsmwwvVShVUE1F
+         9l6g3ZFsOrb1k+SlP3L5xHRH6tAWkJZrKIUiBNuX+kNfShY1VCIyjsMz/9vTGiQporUB
+         6jjOX+qXJIMrZLXUeUbkWJKyEsVkn18FEHGiUbR7XY15VGgOu1cNmU5EGsCKzxbtCJKz
+         lqTA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=iPAB92wX;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=pamlevesque.aecom@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <pamlevesque.aecom@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id 00721157ae682-794fed6b307sor15715317b3.0.2026.02.04.03.29.49
+        for <x>
+        (Google Transport Security);
+        Wed, 04 Feb 2026 03:29:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=iPAB92wX;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=pamlevesque.aecom@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1770204589; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Jh79t/a+H27vkS9WQnxSQc0+9Ff2ATVD+RkYJBe6H9BhCLMR7vPs9WZJTk6did0QDP
+         HMeS3n46+E9X066c6M3gKRoUfeYl6+BQ3Ook8IPnoFWtss4dZK6sX0JK36ads7OFDp6O
+         GGIrY5V7hTKumuSfahHIjVlQNVme5HRg1dVHmFWYiTd8v03Z/L5yDiUcoPHYI/FWjMeE
+         laikNdQFzfFMWFVbB9jVIac0A7egrl7/4UCVbhRopX12ZpRd7Yru8YfJJyTAD88NbWyj
+         LSZu2zj/6apXXGhtjPm69mrUuwi1SfiOPJ9LTXAsUqtAc2y+b7NVaAcuSNfoAaY6B6kW
+         Kvbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=eNmAWBi/iJwMFNJ+3Lg1lpMCfKBWuFlPh0Me76AaIKw=;
+        fh=ms1vpttUhFZFm4bhdk9da+Yk0dOJt5yPphOIonoN/lM=;
+        b=Tze364ZPZizPgz/DBEP2qfqebN+W1VqJODDccmIAqdx669dutxIUfocLpeXosn5qte
+         LpGNpt4iSZRtkt/l2I/R8rdT/f6QzxFUWQfejKkTMWPiHNXNWK01Z1g13nTcHWbK2uG8
+         TzUGiuUnw24pcYVrClcr8+jSuz0oCe6CFUSxoWq4uLj41xMRck5yiNGFYCWOxk3ZhkRL
+         zhIWQPIcbBaoxBK5P2VyfpbOw55LfutT9wEGynD8T+wtShi34mZE2MOxUrd3MtdLDZD8
+         MK5WwazMrdNlKgFDydSkImGtyk7TIVKDW+R1WnqWYLWgB0uK2OZkcgMM1RUPkSkh16aH
+         i93A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770204589; x=1770809389; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eNmAWBi/iJwMFNJ+3Lg1lpMCfKBWuFlPh0Me76AaIKw=;
+        b=iPAB92wX9JN57xrd+uX9C74SIzgrGTcgcwqfHH1VmFGvaU2gCdO5lnz+Bz0F6wVjTU
+         smnb7bHicAJb6wApqC8SenbYtzNmh/FPRyf+vaUGVUHmaxye3G1gz1Cezhv/pF16pqgo
+         +nWbRR76394qVZ289NZck+XRTW0SZE3yjhmFQ/uTGiYmtLC3zZZgulHmY5AAxSBF0pT1
+         jM6nf8e2w8znK6pRFlDy0tozq9aSLFk3m38NU73D+74R3fQul/XvLmS9jHcWWS/8cF+1
+         1Hp3U+2jCgirnDo28qejCMOMsG0p5VYhnA+sfZFu2BElbrj29IMWyXSmt4p7swaaQrAP
+         wEgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770204589; x=1770809389;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eNmAWBi/iJwMFNJ+3Lg1lpMCfKBWuFlPh0Me76AaIKw=;
+        b=RX7V0PGfjstiIau26tAfkYiDXie35T8CfLTzRGPcIhld2wlV9+F46QWAYCmeQkCyyM
+         s2i/Qjt8op1UqbYpNDTiWWC9GGbzYSi8tniAUWAY2btL/p302tiOPyD1wuUvl0lmZDlW
+         f1NCjNsiHd5oySzw3dq3dy+S0SKFsxvyYxen4jf7sVbiJW/paQkhV5c3VumanuSyzr2W
+         q1W4rU/3uh2spyIjpOEQR9bGXVieS2Sq3mbhUgPu9jMeybkS4QTKG4UUVeo8VYFJttXD
+         VBHKR3rEhJxOGoYQ9Pz8yq1WICXA4rT6ZzkbmFPwfP6m23rbktK1somNeSMr7MA63vKf
+         jzwg==
+X-Gm-Message-State: AOJu0YzHxw0tAzg7do8WBS33AMck1O1canmRDTmq7GMUUM6JyQXHt+D0
+        WOYx2tgEhJKMyjT+geGoSP2g98ngGVpT0VYwFHshaJoWeY+FFnNcButxrcO92JRND2WIODN5ala
+        YXou13XMfsZn6wDhGaSxX7mfszk04D9bev/i08O+cughM/aneF6ZA
+X-Gm-Gg: AZuq6aLudzbROq8I9CjzqqP6Q2CYKgQsz/Yhpsy/04t2veMCSldPuQMH4KhXlBAtiPn
+        DcGIAFkrelb7YPuBjHF5+iJqlW4fk5auvfVRojj0zXG/BpcCGeDBa9uMNJNooeY8coxq/KvhGKj
+        5X1Wk53YeQJ+ZChba1oKFGYbJVV4xYdtiGd4KF+uuD93dnQV7arV76RLpGmo5tmMWl2VRisUJ4w
+        l47O1SuEXxirLvBok0UdBd3mPFA8PSR6YbNpLFpR2OvQOmyClg4CqMKuJP9wda/5NPdKhGJxojU
+X-Received: by 2002:a05:690c:6002:b0:794:baaa:cc71 with SMTP id
+ 00721157ae682-794ecdcaebfmr56313747b3.16.1770204588822; Wed, 04 Feb 2026
+ 03:29:48 -0800 (PST)
+MIME-Version: 1.0
+References: <CA+ZSmhnpMx55yf-N+VRVqe4dZ1B8+PCDPbdVmvbAZTOaaGSqMg@mail.gmail.com>
+ <2c9a16d1-0020-456f-b753-373f6f1f4bc7@gmail.com>
+In-Reply-To: <2c9a16d1-0020-456f-b753-373f6f1f4bc7@gmail.com>
+From: "pamlevesque@aecom.com" <pamlevesque.aecom@gmail.com>
+Date: Wed, 4 Feb 2026 12:31:02 +0100
+X-Gm-Features: AZwV_QgRjCJP-sUsQ15BxIM1GVHMSSVvC93UArJK8UYoW5uA7oR-xD1MXS_STlc
+Message-ID: <CA+Z___________________________________________TnVA@mail.gmail.com>
+Subject: Re: Senior Cybersecurity & Risk Leadership Opportunity at AECOM
+To: "x" <x>
+Content-Type: multipart/alternative; boundary="000000000000b255690649fddfdb"
+
+Email content: 
+
+Hello Tim,
+
+I hope you’re doing well. I wanted to follow up regarding my previous message and express my continued enthusiasm about connecting with you. Your experience in cybersecurity and risk leadership is impressive, and I am confident there could be a strong alignment with an exciting opportunity I would like to share.
+
+To ensure the discussion and role I share are as relevant and valuable as possible, I would greatly appreciate your insights on a few points:
+
+1.
+
+In your current or most recent role, what has been your primary
+focus and the areas where you’ve had the biggest impact within
+cybersecurity and risk leadership?
+
+2.
+
+Which types of challenges or opportunities are most motivating for
+you at this stage of your career (e.g., enterprise-scale
+transformation, advisory leadership, hands-on security strategy,
+governance, or mentoring teams)?
+
+3.
+
+Looking ahead, what kind of role or environment are you most
+interested in exploring next?
+
+Once I have your perspective, I’ll be happy to share the detailed job description and propose a time to connect that fits within your availability.
+
+Thank you again, Tim. I look forward to your response and continuing the conversation.
+
+*Pam Levesque*
+Senior HR Manager,AECOM
+*Portland, Oregon, United State*
+https://www.linkedin.com/in/pam-levesque-b742274 <https://www.linkedin.com/in/pam-levesque-b742274>
+
+
+*Disclaimer**: *This message and any attachments are confidential and intended only for the designated recipient(s). Unauthorized use, disclosure, or distribution is prohibited. Views expressed are the author’s own and may not reflect AECOM’s official position. If you received this in error, please notify the sender and delete it.
+
+
+SRC email #2
+Subject: Re: Senior Cybersecurity & Risk Leadership Opportunity at AECOM
+Date: Thu, 5 Feb 2026 02:37:43 +0100
+From: pamlevesque [AT] aecom [DOT] com <pamlevesque.aecom [AT] gmail [DOT] com>
+SRC IP: 209.85.220.65
+routeid: 81384177 209.85.128.0 - 209.85.255.255 to: network-abuse@google.com
+ISP: Google/GMail
+
+Email header (redacted): 
+Delivered-To: x
+Received: by 2002:a05:6022:329b:b0:ee:219e:40ea with SMTP id bw27csp4320352lab;
+        Wed, 4 Feb 2026 17:36:31 -0800 (PST)
+X-Received: by 2002:a05:690c:4910:b0:794:fcd9:4aa1 with SMTP id 00721157ae682-794fe8538e2mr47008707b3.69.1770255391443;
+        Wed, 04 Feb 2026 17:36:31 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1770255391; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=ErJ+I3OGMRC8Acla2Avq4P+PB08aw9nXuSImAt5tWzSWUk/AbqHL5sUjlcaeKHUHwM
+         qvXAXJx+fQd8c9Tc2JiW/U7+wIEMvUQLQz2yD+WPDclqtKEj2pQqJCHMAGxEhPJj10wQ
+         eiVdbPhewySG2hL57onPCE8c7/2WVdB1vIBs8bw5pWNuzZGcmRdpNzRFr6cRWysu8qh9
+         S8JObeiZXsQOEPvhbMN0PShwLJk9YetoppfXO8T0l8xuFGXl3mp9HZVw7PYynZxZtCxA
+         993r4St5fn1uKw8vRLTdIC60Pa6ExAQqIU6rEygEfQ5jDgaeSpNEeQuuTBkJfLuVNSih
+         /agg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=/uMxY7ea8J7yi0/FVG3u3FtOv8YltRClvBiFU6AH/yA=;
+        fh=ms1vpttUhFZFm4bhdk9da+Yk0dOJt5yPphOIonoN/lM=;
+        b=g77IELUeraiVHgKdNIia2Sl2LINph/iY+4YE5lqqnrbFlvNrBwJkzHRQ8nFkkCid6q
+         Yp4lps3ah361bLbPHhojiPVIMMbU+XOen7g/6UMf3YX5y5xvXzSBNcGZ+4ZPQwitjW7u
+         zwcBMB+WtgAjSUXV4zrnLLRroaTm1cCdyEpMBkUqTtXhobQrSsEe2sw4gZUxWZfDyB6/
+         fhuO5mszf2Dx9VV7tzaKWi2dKuk2iARv7rdD/tJu+YxtTiIRXaRiu8/GUYuUCwmhTBrP
+         KiZ+EzylW0lx943smlTrvFSJ3MGICnP3P8n2OWlT4V/LnJi7gP+hYZLFvYMDAzO+I5SR
+         pVQw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=fRjglhyV;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=pamlevesque.aecom@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <pamlevesque.aecom@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id 00721157ae682-794fee99168sor22438217b3.4.2026.02.04.17.36.31
+        for <x>
+        (Google Transport Security);
+        Wed, 04 Feb 2026 17:36:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=fRjglhyV;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=pamlevesque.aecom@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1770255390; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ODnFZqWZAm+1jHQga7zoKCa4mjkRH9X5s8ulVx9Og+Bw8H9Nt6xHvTRh4ZmaK7vzEr
+         n4v/Zl6f45QWRgRyafcxlzXV5UIo6DkpU9SfDK07ejkHDu/ViyxhGa88v0XrY+bbNfDw
+         j/Ym8Ae2jbH/ws7726GbOPP/kUpL+e/l2n1N2eODZCyxyI94VfzB2UeXLDoUNnODPSKg
+         1Ysvd3QvZoIHZAImDlULiGgRyxlsqjM4I7DnSEXgkClXHbk14TK+nziETx0cOkOTxxRu
+         1XgBcBf0eck0z35wuqc8jeiLPbI+d6pX06cxxytAVoN6wDjZZHLYF3E5ZsOHYKA064O0
+         fDgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=/uMxY7ea8J7yi0/FVG3u3FtOv8YltRClvBiFU6AH/yA=;
+        fh=ms1vpttUhFZFm4bhdk9da+Yk0dOJt5yPphOIonoN/lM=;
+        b=EkMJMq8LARRa7jBLk3y4EzRZQgfasEUwzeR+9GpHf6698e200Gd6QMKfkyMA0WCtT7
+         riK3NMf25C77WIGzdQifS+iybIf/94dpI4i9cXmTPE9C7DJMiqOZGXGE0VUMVvDk+PvS
+         9df4TUTapHL9nKsuJbhcQeFFOowqZg7WNnCFyg/LnwU0qRj4XkVq2acjY8UqHsGwnCzi
+         6uWq1Nq7XRoILnBjXIdQv2xEka176WQlmcFwBwywPSsKa5ozQmVp7yMVtktb9dZHjh+x
+         S+siPckVi8Qrd0QEy46acyRxrOfVT1O5Es7UCLEm6baiRtBm0ZS/4mUIIZ8cC+fbnV8s
+         1rmQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770255390; x=1770860190; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/uMxY7ea8J7yi0/FVG3u3FtOv8YltRClvBiFU6AH/yA=;
+        b=fRjglhyVfScEoSxd7Q8+qscHGgfeMDQNqE9xt2+w8sRXbL8og8uZ8EvC4Un1DeLAyY
+         kz6JMsubuqS80wjBROc/cGfLjyOfsp9mB66y9v3VZPHhRjAh59y1s6f6c1Bv3VqPwpUC
+         HcCy9VUMQVbF72dPUkz6T4xvKGSsgQAxmsqC8W3a9+0XmMLz7VtJkp80A2FPahzpBvm7
+         5rbMiZE2UxtpDNmf66ODRHSOr3ezvWRN752eO2/v3v7RZo1WTcLbrVf1kXAv/9QqXoBQ
+         535e4GwQTVYqxa3yukYjkRYlqgdITGIDpZEg357KhvYWfT+yfMWALBIFPAWQI4aYJi2d
+         nEKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770255390; x=1770860190;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/uMxY7ea8J7yi0/FVG3u3FtOv8YltRClvBiFU6AH/yA=;
+        b=FsJIa8RJk+bjP1vT12jFWWYUTxpsyK/WKXrJ18pYIth22Gc0MRhRBvV4gevr6w8kXT
+         Mg6x5YQLNoabTRq7y7/gqTqsxxDaEgrDoWz/QC28c2MxkgXku9iPpOICUcW8u4Jo6Xaz
+         APWEJzikdMegj8LBOxsujWCrdtDD18CxhALitKwrA83qiPngm87kbNOekWY3h3+8Jnqe
+         lTZ3If1x3qK9zdkkL9rkLml9XxYPKUGnm95GosyLuK2dqeckmBKllmY6JTS9x5l3AH3Q
+         +/9f6rehoIgidNnmiZb5wVEWainnO+TFgTMb2jzQlPaWRThtSszYueTLeNY9+T6Vmcz6
+         K/qQ==
+X-Gm-Message-State: AOJu0YyR7cWMiq2E6oHtbneBVnT+sV5uk/17hbdU0s2mQedCdRPtb1mE
+        RQWg6FQxhsO+6AcvFLErFpS8VB58aMxzH6gvkSHkWW5M2E6uwuGNboQwSu10Q0GjskNfykSW+rs
+        d8GLVbBFoF8k1QVLP9IrgcfLlcfgVOE59jBTHq1sHoUzOels=
+X-Gm-Gg: AZuq6aKnqX7MA8aDHqsiY368oMlCF4aD6xQTwVh/T/lxCtLY7Sc4d/+3ik5/P4oTC8x
+        WagrQ4dLQs7mWTUqTA/LznOPNHStIyjjCeYXlt8jO8wbSyPNpLQef/4iDrjYoig/sfu59ifCQhi
+        4bhiH7wVVev37SnB+PD/V9YLqI2FR7vzQZi+7soy0Id1Us2b3vgPsTWoCsMYfw6lS0ENQQ6P1A/
+        0hCxJJqlL+PyjQhdXkgXCPYRyBgHrR4ORKlFpp8GL0izj/JssI/AQH7z8HeX/AcV9inbx+MW3g=
+X-Received: by 2002:a05:690c:fd2:b0:794:feb3:b0d7 with SMTP id
+ 00721157ae682-794feb3b56amr56539757b3.22.1770255390371; Wed, 04 Feb 2026
+ 17:36:30 -0800 (PST)
+MIME-Version: 1.0
+References: <CA+ZSmhnpMx55yf-N+VRVqe4dZ1B8+PCDPbdVmvbAZTOaaGSqMg@mail.gmail.com>
+ <2c9a16d1-0020-456f-b753-373f6f1f4bc7@gmail.com> <CA+ZSmhmWtiEjv0kqCgTu2GvwHRD74T8qOA82EDv-Q9hUgRTnVA@mail.gmail.com>
+In-Reply-To: <CA+ZSmhmWtiEjv0kqCgTu2GvwHRD74T8qOA82EDv-Q9hUgRTnVA@mail.gmail.com>
+From: "pamlevesque@aecom.com" <pamlevesque.aecom@gmail.com>
+Date: Thu, 5 Feb 2026 02:37:43 +0100
+X-Gm-Features: AZwV_QiS2lFre7LTWyEweObE9mBdSr5SXd6rz3Jgh-CBwgUPixpsXqWVLn_Svi0
+Message-ID: <CA+Z___________________________________________R=nw@mail.gmail.com>
+Subject: Re: Senior Cybersecurity & Risk Leadership Opportunity at AECOM
+To: "x" <x>
+Content-Type: multipart/alternative; boundary="000000000000b47241064a09b3ae"
+
+Email content: 
+
+Hello Tim,
+
+I hope you’re doing well. I wanted to follow up regarding my previous message and express my continued enthusiasm about connecting with you. Your experience in cybersecurity and risk leadership is impressive, and I am confident there could be a strong alignment with an exciting opportunity I would like to share.
+
+To ensure the discussion and role I share are as relevant and valuable as possible, I would greatly appreciate your insights on a few points:
+
+1.
+
+In your current or most recent role, what has been your primary
+focus and the areas where you’ve had the biggest impact within
+cybersecurity and risk leadership?
+
+2.
+
+Which types of challenges or opportunities are most motivating for
+you at this stage of your career (e.g., enterprise-scale
+transformation, advisory leadership, hands-on security strategy,
+governance, or mentoring teams)?
+
+3.
+
+Looking ahead, what kind of role or environment are you most
+interested in exploring next?
+
+Once I have your perspective, I’ll be happy to share the detailed job description and propose a time to connect that fits within your availability.
+
+Thank you again, Tim. I look forward to your response and continuing the conversation.
+
+*Pam Levesque*
+Senior HR Manager,AECOM
+*Portland, Oregon, United State*
+https://www.linkedin.com/in/pam-levesque-b742274 <https://www.linkedin.com/in/pam-levesque-b742274>
+
+
+*Disclaimer**: *This message and any attachments are confidential and intended only for the designated recipient(s). Unauthorized use, disclosure, or distribution is prohibited. Views expressed are the author’s own and may not reflect AECOM’s official position. If you received this in error, please notify the sender and delete it.
+
+
+----------------------------------------------------------
+My LinkedIn posting: https://www.linkedin.com/posts/activity-7425310119661391874-9OBL 
+My Mastodon posting: https://infosec.exchange/@obrientg/116020420469228861 

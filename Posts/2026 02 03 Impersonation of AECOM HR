@@ -1,0 +1,177 @@
+Impersonation of AECOM HR - The malicious actors continue to target individuals on the search for their next job.
+
+Yesterday I spent the afternoon writing up a response to (what I thought) a reach out by AECOM HR for potential roles with the company. Having crafted thoughtful responses to the questions, I went to reply – 
+And realized this was fake. This is a scammer. 
+
+The tell-tale signs I missed at first: 
+•	The name not matching the email address 
+•	Weird subject line
+•	The email coming from GMail rather than their aecom.com domain
+•	The work signature block including a LinkedIn profile URL 
+•	Email interaction tracking URL 
+This sample was specifically targeted as they pulled background from LinkedIn regarding my background and experience, hence my blocking the other telltale signs. 
+
+Apparently the CISO for AECOM is https://www.linkedin.com/in/pauldial/ 
+
+These threat actors are using mailsuite [DOT] com a Gmail plugin to track their targeted individuals (aka the u.list-opt-center [DOT] com URL). This appears to be a legit service being used for malicious activities. 
+Reviewing their LinkedIn they are based in Spain and it does not appear they have any InfoSec, privacy or abuse folks. 
+https://www.linkedin.com/company/mailsuite/
+Their CEO profile is https://www.linkedin.com/in/eduardomanchon/ 
+
+URL analysis: 
+https://urlquery.net/report/006b71b8-a7ee-49f0-8790-d820a213a5ab
+https://app.checkphish.ai/public/insights/1770266875251/6218c64bf21ec8b9fc4652883e086e71ae5c134fa0390dc00fdf83d807ed0621
+One site noted as suspicious: https://www.urlvoid.com/scan/u.list-opt-center.com/
+Medium security risk: https://sitecheck.sucuri.net/results/https/u.list-opt-center.com/en/privacy/opt-out/unsubscribe/c294db153107e01762a8cd8e13c32045f1d3fbf1/a9ab66d35068efaa02f7caf13c96e68dd5621d4e2fd76baf544de79b11e49af8340a2bf4844411964b4bf733fc9881a92b8b5b3e03f4ef1c712b6aaecd30cb23
+https://www.virustotal.com/gui/url/6218c64bf21ec8b9fc4652883e086e71ae5c134fa0390dc00fdf83d807ed0621/details
+
+
+Details: 
+From: pamlevesque [AT] aecom.com <pamlevesque.aecom [AT] @gmail.com>
+Note the “name” as an aecom.com email address but was really sent from Gmail 
+
+SRC IP:  Tracking message source: 209.85.220.65:
+Routing details for 209.85.220.65
+Cached whois for 209.85.220.65 : network-abuse@google.com
+209.85.220.65 not listed in cbl.abuseat.org
+209.85.220.65 not listed in iadb.isipp.com
+
+URL Parse:  hXXps ://u.list-opt-center [DOT] com/en/privacy/opt-out/unsubscribe/c294db153107e01762a8cd8e13c32045f1d3fbf1/a9ab66d35068efaa02f7caf13c96e68dd5621d4e2fd76baf544de79b11e49af8340a2bf4844411964b4bf733fc9881a92b8b5b3e03f4ef1c712b6aaecd30cb23
+Host u.list-opt-center.com (checking ip) = 52.214.44.207
+with the Cached whois/abuse reporting for 52.214.44.207 : trustandsafety@support.aws.com
+Unsubscribe URL for https://mailsuite.com a Gmail plugin 
+
+Redacted header: 
+Delivered-To: x
+Received: by 2002:a05:6022:329b:b0:ee:219e:40ea with SMTP id bw27csp3533836lab;
+        Tue, 3 Feb 2026 17:52:44 -0800 (PST)
+X-Received: by 2002:a05:690c:ec2:b0:787:f755:5ae5 with SMTP id 00721157ae682-794fe8250bdmr15901277b3.40.1770169964659;
+        Tue, 03 Feb 2026 17:52:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1770169964; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=IPhwpSx7EIyWAkss0iZagUgdvMeONB50hT5R4fp5gTx9QfIgiL+csSmc09H+Ups+LG
+         g51UHqFY/uPDoCZywGiCCtWZwOVT43WM+UzF3kgu2Pc9/3cPfOQHtfwvQLkgWKaGOSil
+         Xgz0X9xMw1IESVuajJ00LoKvdSQBFA0F/fJ+4VwR9bD2BmQtOWQP5xUBE48lwrQKQy46
+         9LautsWD5OSsQ/EOHSb66vUL6mbcrbxDUaf9GBNJfDw98lq697wxddfcmTQi2WY0aLaX
+         teXKcmIniAsC+x8zC3EoXC1o/pgzBFWsamnpwHrmTKgBjJ7uHCDEG285ub1X2qXsXkBG
+         G4+g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=ex1UfCBAnqFxQszsBW1YQehUsXYFSlEuhgx9M5F3U2s=;
+        fh=Qq4FAw6hqe8fo7uXt8u0mGehyEM+bRlEZ+EtW1oevWc=;
+        b=fv0BPy8EieV9hPSuW22Jz/Z0BGq4hUt6y3NNyMvm/KhPXklgbsyNbLJVjySVYHVz19
+         L7fZRPd1QuGpxHvATpJYfx0dyw3jjlQaV2v1ZKN8oStLTGsqLUTxzC82kTw1H2ZwuwXn
+         ic7MUgLfhpz0G09HVihy3b/I0qtJUX0kSdskdbtEcrKmlkgSeZzS5DjT8H6R2Iq2eOVQ
+         yXku2rR/jDxkY3ydyXvPU0qKlzHfDRYl3HK+gSH1dHWG8ROmsxn/GHclA8j6n/ZN5fCV
+         RZf2SiSmgvarGuhhgjatmymuOs9weODqmBuKe3tF7ccc7nIymp8gJ68gjGmv+VhW9KXB
+         JFYA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=GBziI7aW;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=pamlevesque.aecom@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <pamlevesque.aecom@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id 00721157ae682-794fefdf049sor7412697b3.14.2026.02.03.17.52.44
+        for <x>
+        (Google Transport Security);
+        Tue, 03 Feb 2026 17:52:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=GBziI7aW;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of pamlevesque.aecom@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=pamlevesque.aecom@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1770169964; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JqAN3dorn/yuJlbg9TQkg0tlgyyLnPSOgSubx/ciGuMv50EYM5nqppx7B+mwTBD0Yw
+         aipBpL3rmAliGSoZ29DvJlHKnBNpD1yQTvSjbS/wqhlX02r4DEuPBJR1B9oqIhz0dF4Z
+         Vu5M4lOCTbY1SaM5pb0p6NA1rVw5aiE46r1m+85B+MCGsn0GqRdkh+DbPBY8xNgXt/ef
+         Z7SZ+hkFpPHivRXe5X76o3nE+YbdHyR4r/x8Ej+G9l4NIbhy2B6MquxZf4koDS+JwQ8v
+         J3TEbvdLOPKSxaVXG0sFjUgBoUW+5AvC032KOTiTxZ9o5DhgsC15dy6k9g3ynQNcx6Jn
+         pvsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=ex1UfCBAnqFxQszsBW1YQehUsXYFSlEuhgx9M5F3U2s=;
+        fh=Qq4FAw6hqe8fo7uXt8u0mGehyEM+bRlEZ+EtW1oevWc=;
+        b=GrhtsOCgOlKBiiAiStbfbId0Nep9Li65+AicLeYJPbmo7EMxLiBcXAZJ/lOiB5Mguk
+         zt7ydm8RKcUEwIOIDaZetXNl3kqTPmxkfeuACYvkG0WT2cpngiLJgQqLmNP5a6MBoxdE
+         G+oziEL5DEn9wkJcxZZIQwLZ4Li13Ef9H/XGBCNCAqDXX/heZ3uyj7gTX5DYSL002vBz
+         LeXi76JmKxnbZcXzfPDJjaYMhp/w9UFryQRSU+iErUEegbaxhoBXC+add8ThmZfNYZVf
+         7x1z7NJv9rbSw7WZ2u2L985/WFfrXnShr/hwA9VVJV4Fa6/dnP2eb02xZwmUkFGCYMnx
+         +S1Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770169964; x=1770774764; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ex1UfCBAnqFxQszsBW1YQehUsXYFSlEuhgx9M5F3U2s=;
+        b=GBziI7aWezFFw6dbLthioxk+3YnRjwrz2ORgw998gZbjEdqvoLlBOGC31V6lnPBW6i
+         ANN8WcLe/NqvVGb40F/vvyerqkQcTGS/y3PipnE0QfxpC+G16Q1v8Z0UNq7t7RTGviof
+         G+9kreYmAAltQmK6gYSWNosBrDJMYQA+sRQ6iiFB7n32lSF4BNtGKtkNRHSgfi14CqMz
+         Xx5WISbF6TpD6vZh1GtDDCapprmiXvHbhCS+hC0dP3s+j58HirXKuAaGTWJsBZMP7kTB
+         3a1IvLxNgDj9eqK52oB9BlvtbUPb5aejYXkDp7UEbzSTUraFc4cQW7b4Gm/2LQrUpuwl
+         mZLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770169964; x=1770774764;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ex1UfCBAnqFxQszsBW1YQehUsXYFSlEuhgx9M5F3U2s=;
+        b=lquCpgAABrCdN0lMdYS/eYToeiVIW9tE8KFUbBQDaBTpqwsS9hlDQHZ9b1uOtdxMX6
+         rgxTGtGEVsxiFvhviwNc+o+EcL1qErGYPVQRPBLxobfPB4qreawND3thxOiPF1eJ0o00
+         +jz6FwZbiI95TBwdcKLXJrFhjUIwkvW/UnGmfQFOjYQZpI/aNeOZ8ryw0M9Q+YJSN4dW
+         pJXuqifyXfw2Rl6p8jQWovWBzaQk+duNpyXjOuI0ZSyui0mRFveDWHjlMatAlJ97fp7R
+         qkn2h7K5nZU4RwTpnsG6zZzZnadxkRN2l0T223BddTPXWcbADdC2yV9T5BVgveSwQPP6
+         uDEw==
+X-Gm-Message-State: AOJu0Yw+AN1+D/MnZPPpgHabrw0RRL3FzhB0f3DVxrCPeWK4fBQoB1fA
+	Fd1q0l+wGLUUMJonw909axmmfEtH45pGi/veRghOPAyWO/PvhUj8BrHxVRcPYu6cOyYs4RLgInj
+	ye6/8rGinYiuMIhmKqIEvOASppcOd5BWlyevTJCRnFvRWH9x4zzuN
+X-Gm-Gg: AZuq6aL+xAlYxj8zx8sHPVLTuT8fmOj9VAKubjcL6l9LH89VbXVRl3TE07YxEUdYasO
+	cnZuZsVJ53HXwSAkKOzln2KTzB/lqaTyfPzTBI+c0bIk8a1VlawG7JS0vhl7K6zoa040/tkjYNv
+	M8OMfnAgJKRQwR49WDApMVM53gRn9lZEOZw6hzdD73SNyaS8ZEx7nzpMcB/c3A0kC6B0pq95EqK
+	VQpoyx41DqoKXRNvnCl3lwaJfwxMV6WUjOnBT99WPA2Mle6F+HDV2ipoXX81wRaFjeouYurIdo=
+X-Received: by 2002:a05:690c:d83:b0:794:975a:3752 with SMTP id
+ 00721157ae682-794fe6f4936mr16877467b3.15.1770169963667; Tue, 03 Feb 2026
+ 17:52:43 -0800 (PST)
+MIME-Version: 1.0
+From: "pamlevesque@aecom.com" <pamlevesque.aecom@gmail.com>
+Date: Wed, 4 Feb 2026 02:53:51 +0100
+X-Gm-Features: AZwV_QhSNOHOWEGMiFzxsUx7MTezKelyGL1V8tzoUv0a9VIzqH_AIJRZnQ0K4yY
+Message-ID: <CA+Z___________________________________________SqMg@mail.gmail.com>
+Subject: Re: Senior Cybersecurity & Risk Leadership Opportunity at AECOM
+To: x
+Content-Type: multipart/alternative; boundary="000000000000e062e70649f5cf75"
+
+
+Email content follows: 
+Hi Tim,
+
+I hope you’re doing well.
+
+I recently reviewed your background and was impressed by your extensive leadership across cybersecurity, risk management, and privacy, including your roles as VP of Information Security, Compliance, and Privacy at HealthTap and CISO at Stay At Home Docs. Your expertise in cloud security, threat intelligence, security operations, and regulatory compliance demonstrates a strong ability to safeguard critical systems while driving strategic security initiatives.
+
+I’m reaching out because AECOM continues to strengthen its cybersecurity and IT risk leadership across large-scale infrastructure and advisory programs. We are seeking senior professionals who can provide strategic oversight on information security, risk management, and compliance while partnering with executive and technical teams to ensure secure and resilient operations.
+
+The opportunity involves leading enterprise security initiatives, advising on risk-aware technology decisions, and contributing to governance, compliance, and cloud security strategies across major programs. Given your breadth of experience in cybersecurity leadership, regulatory frameworks, and operational risk, your expertise could be highly impactful in this environment.
+
+If this opportunity is of interest, I would welcome the chance to connect and share more details. Kindly reply to this message if you’re open to a conversation.
+
+*Pam Levesque*
+Senior HR Manager,AECOM
+*Portland, Oregon, United State*
+hXXps:  //www.linkedin [DOT] com/in/pam-levesque-b742274 
+
+*Disclaimer**: *This message and any attachments are confidential and intended only for the designated recipient(s). Unauthorized use, disclosure, or distribution is prohibited. Views expressed are the author’s own and may not reflect AECOM’s official position. If you received this in error, please notify the sender and delete it.
+
+Mailsuite Email tracked with Mailsuite  · Opt out <hXXps ://u.list-opt-center [DOT] com/en/privacy/opt-out/unsubscribe/c294db153107e01762a8cd8e13c32045f1d3fbf1/a9ab66d35068efaa02f7caf13c96e68dd5621d4e2fd76baf544de79b11e49af8340a2bf4844411964b4bf733fc9881a92b8b5b3e03f4ef1c712b6aaecd30cb23>
+02/04/26, 02:53:41 AM
+
+
+
+----------------------------------------------------------
+My LinkedIn posting: https://www.linkedin.com/posts/activity-7425234187286351872-z1Wx
+My Mastodon posting: https://infosec.exchange/@obrientg/116019930004835520
